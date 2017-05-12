@@ -45,6 +45,8 @@ Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 %{_sysconfdir}/xdg/importwizard.categories
 %{_sysconfdir}/xdg/importwizard.renamecategories
 
+%dependinglibpackage importwizard 5
+
 #----------------------------------------------------------------------
 
 %prep
