@@ -35,15 +35,15 @@ Obsoletes:	importwizard < 3:16.12
 %description
 Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 
-%files
+%files -f importwizard.lang
 %{_kde5_applicationsdir}/org.kde.importwizard.desktop
-%{_kde5_bindir}/importwizard
-%{_kde5_datadir}/importwizard/pics/step1.png
-%{_kde5_datadir}/kconf_update/importwizard*
-%{_kde5_docdir}/*/*/importwizard
-%{_kde5_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
-%{_kde5_sysconfdir}/xdg/importwizard.categories
-%{_kde5_sysconfdir}/xdg/importwizard.renamecategories
+%{_bindir}/importwizard
+%{_datadir}/importwizard/pics/step1.png
+%{_datadir}/kconf_update/importwizard*
+%{_docdir}/*/*/importwizard
+%{_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
+%{_sysconfdir}/xdg/importwizard.categories
+%{_sysconfdir}/xdg/importwizard.renamecategories
 
 #----------------------------------------------------------------------
 
@@ -56,3 +56,5 @@ Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 
 %install
 %ninja_install -C build
+
+%find_lang importwizard
