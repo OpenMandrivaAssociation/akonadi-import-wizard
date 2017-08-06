@@ -1,6 +1,6 @@
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	17.04.3
+Version:	17.07.90
 Release:	1
 Epoch:		3
 License:	GPLv2+
@@ -32,6 +32,9 @@ Provides:	importwizard = %{EVRD}
 Conflicts:	importwizard < 3:16.12
 Obsoletes:	importwizard < 3:16.12
 
+%define libname %mklibname KPimImportWizard 5
+%define devname %mklibname KPimImportWizard -d
+
 %description
 Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 
@@ -44,8 +47,34 @@ Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 %{_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
 %{_sysconfdir}/xdg/importwizard.categories
 %{_sysconfdir}/xdg/importwizard.renamecategories
+%{_libdir}/qt5/plugins/importwizard
 
-%dependinglibpackage importwizard 5
+%package -n %{libname}
+Summary:	KDE Pim Import Wizard library
+Group:		System/Libraries
+Requires:	%{name} = %{EVRD}
+Obsoletes:	%mklibname importwizard 5
+
+%description -n %{libname}
+KDE Pim Import Wizard library
+
+%files -n %{libname}
+%{_libdir}/libKPimImportWizard.so.5*
+
+%package -n %{devname}
+Summary:	Development files for the KPim import library
+Group:	Development/KDE and Qt
+Requires:	%{libname} = %{EVRD}
+
+%description -n %{devname}
+Development files for the KPim import library
+
+%files -n %{devname}
+%{_libdir}/libKPimImportWizard.so
+%{_includedir}/KF5/KPim/ImportWizard
+%{_includedir}/KF5/KPim/importwizard
+%{_includedir}/KPim/importwizard_version.h
+%{_libdir}/cmake/KPimImportWizard
 
 #----------------------------------------------------------------------
 
