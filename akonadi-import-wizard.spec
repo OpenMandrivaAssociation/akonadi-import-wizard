@@ -1,6 +1,6 @@
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	17.08.3
+Version:	17.11.90
 Release:	1
 Epoch:		3
 License:	GPLv2+
@@ -38,9 +38,9 @@ Obsoletes:	importwizard < 3:16.12
 %description
 Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 
-%files -f importwizard.lang
-%{_kde5_applicationsdir}/org.kde.importwizard.desktop
-%{_bindir}/importwizard
+%files -f akonadiimportwizard.lang
+%{_kde5_applicationsdir}/org.kde.akonadiimportwizard.desktop
+%{_bindir}/akonadiimportwizard
 %{_datadir}/importwizard/pics/step1.png
 %{_datadir}/kconf_update/importwizard*
 %{_docdir}/*/*/importwizard
@@ -88,4 +88,4 @@ Development files for the KPim import library
 %install
 %ninja_install -C build
 
-%find_lang importwizard
+%find_lang akonadiimportwizard
