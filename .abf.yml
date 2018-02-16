@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   akonadi-import-wizard-17.12.1.tar.xz: cd72e2d380fdf60e3b04b1b30ae51babd05b3f01
+sources:
+  akonadi-import-wizard-17.12.2.tar.xz: 44eb5a677ed4b67c650efef98a682d357defc2ce
