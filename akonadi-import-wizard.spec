@@ -1,6 +1,6 @@
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	 18.07.90
+Version:	 18.08.0
 Release:	1
 Epoch:		3
 License:	GPLv2+
