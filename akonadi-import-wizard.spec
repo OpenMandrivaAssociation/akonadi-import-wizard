@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	19.04.3
+Version:	19.07.80
 Release:	1
 Epoch:		3
 License:	GPLv2+
@@ -48,8 +48,8 @@ Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 %{_datadir}/kconf_update/importwizard*
 %{_docdir}/*/*/importwizard
 %{_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
-%{_sysconfdir}/xdg/importwizard.categories
-%{_sysconfdir}/xdg/importwizard.renamecategories
+%{_datadir}/qlogging-categories5/importwizard.categories
+%{_datadir}/qlogging-categories5/importwizard.renamecategories
 %{_libdir}/qt5/plugins/importwizard
 
 %package -n %{libname}
