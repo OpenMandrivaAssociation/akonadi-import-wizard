@@ -30,6 +30,7 @@ BuildRequires:	cmake(KF5PimCommonAkonadi)
 BuildRequires:	cmake(KF5Libkdepim)
 BuildRequires:	cmake(QGpgme)
 BuildRequires:	cmake(Gpgmepp)
+BuildRequires:	cmake(Qt5Keychain)
 BuildRequires:	boost-devel
 Provides:	importwizard = %{EVRD}
 Conflicts:	importwizard < 3:16.12
