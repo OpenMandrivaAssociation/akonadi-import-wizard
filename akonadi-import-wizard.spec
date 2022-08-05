@@ -1,8 +1,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	22.04.2
-Release:	2
+Version:	22.07.90
+Release:	1
 Epoch:		3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -50,7 +50,7 @@ Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 %{_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
 %{_datadir}/qlogging-categories5/importwizard.categories
 %{_datadir}/qlogging-categories5/importwizard.renamecategories
-%{_libdir}/qt5/plugins/importwizard
+%{_libdir}/qt5/plugins/pim5/importwizard/*.so
 
 %package -n %{libname}
 Summary:	KDE Pim Import Wizard library
