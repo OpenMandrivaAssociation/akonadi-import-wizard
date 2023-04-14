@@ -1,8 +1,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	22.12.3
-Release:	2
+Version:	23.03.90
+Release:	1
 Epoch:		3
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -25,7 +25,7 @@ BuildRequires:	cmake(KF5IdentityManagement)
 BuildRequires:	cmake(KF5MailTransport)
 BuildRequires:	cmake(KF5MailCommon)
 BuildRequires:	cmake(KF5MailImporterAkonadi)
-BuildRequires:	cmake(KF5MessageViewer)
+BuildRequires:	cmake(KPim5MessageViewer)
 BuildRequires:	cmake(KF5PimCommonAkonadi)
 BuildRequires:	cmake(KF5Libkdepim)
 BuildRequires:	cmake(QGpgme)
@@ -36,8 +36,10 @@ Provides:	importwizard = %{EVRD}
 Conflicts:	importwizard < 3:16.12
 Obsoletes:	importwizard < 3:16.12
 
-%define libname %mklibname KPimImportWizard 5
-%define devname %mklibname KPimImportWizard -d
+%define oldname %mklibname KPimImportWizard 5
+%define olddevname %mklibname KPimImportWizard -d
+%define libname %mklibname KPim5ImportWizard
+%define devname %mklibname KPim5ImportWizard -d
 
 %description
 Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
@@ -57,27 +59,30 @@ Summary:	KDE Pim Import Wizard library
 Group:		System/Libraries
 Requires:	%{name} = %{EVRD}
 Obsoletes:	%mklibname importwizard 5
+%rename %{oldname}
 
 %description -n %{libname}
 KDE Pim Import Wizard library
 
 %files -n %{libname}
-%{_libdir}/libKPimImportWizard.so.5*
+%{_libdir}/libKPim5ImportWizard.so.5*
 
 %package -n %{devname}
 Summary:	Development files for the KPim import library
 Group:	Development/KDE and Qt
 Requires:	%{libname} = %{EVRD}
+%rename %{olddevname}
 
 %description -n %{devname}
 Development files for the KPim import library
 
 %files -n %{devname}
-%{_libdir}/libKPimImportWizard.so
-%{_includedir}/KF5/KPim/ImportWizard
-%{_includedir}/KF5/KPim/importwizard
-%{_includedir}/KPim/importwizard_version.h
+%{_libdir}/libKPim5ImportWizard.so
+%{_includedir}/KPim5/ImportWizard
+%{_includedir}/KPim5/importwizard
+%{_includedir}/KPim5/importwizard_version.h
 %{_libdir}/cmake/KPimImportWizard
+%{_libdir}/cmake/KPim5ImportWizard
 
 #----------------------------------------------------------------------
 
