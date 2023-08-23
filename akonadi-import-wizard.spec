@@ -1,7 +1,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	23.04.3
+Version:	23.08.0
 Release:	1
 Epoch:		3
 License:	GPLv2+
@@ -19,15 +19,15 @@ BuildRequires:	cmake(KF5Auth)
 BuildRequires:	cmake(KF5DocTools)
 BuildRequires:	cmake(KF5Crash)
 BuildRequires:	cmake(KF5KIO)
-BuildRequires:	cmake(KF5Akonadi)
 BuildRequires:	cmake(KF5Contacts)
-BuildRequires:	cmake(KF5IdentityManagement)
-BuildRequires:	cmake(KF5MailTransport)
-BuildRequires:	cmake(KF5MailCommon)
-BuildRequires:	cmake(KF5MailImporterAkonadi)
+BuildRequires:	cmake(KPim5Akonadi)
+BuildRequires:	cmake(KPim5IdentityManagement)
+BuildRequires:	cmake(KPim5MailTransport)
+BuildRequires:	cmake(KPim5MailCommon)
+BuildRequires:	cmake(KPim5MailImporterAkonadi)
 BuildRequires:	cmake(KPim5MessageViewer)
-BuildRequires:	cmake(KF5PimCommonAkonadi)
-BuildRequires:	cmake(KF5Libkdepim)
+BuildRequires:	cmake(KPim5PimCommonAkonadi)
+BuildRequires:	cmake(KPim5Libkdepim)
 BuildRequires:	cmake(QGpgme)
 BuildRequires:	cmake(Gpgmepp)
 BuildRequires:	cmake(Qt5Keychain)
@@ -79,8 +79,6 @@ Development files for the KPim import library
 %files -n %{devname}
 %{_libdir}/libKPim5ImportWizard.so
 %{_includedir}/KPim5/ImportWizard
-%{_includedir}/KPim5/importwizard
-%{_includedir}/KPim5/importwizard_version.h
 %{_libdir}/cmake/KPimImportWizard
 %{_libdir}/cmake/KPim5ImportWizard
 
