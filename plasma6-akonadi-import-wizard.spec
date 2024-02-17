@@ -10,7 +10,7 @@ License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
 %if 0%{?git:1}
-Source0:	https://invent.kde.org/pim/akonadi-import-wizard/-/archive/%{gitbranch}/akonadi-import-wizard-%{gitbranchd}.tar.bz2#/akonadi-import-wizard-20240217.tar.bz2
+Source0:	https://invent.kde.org/pim/akonadi-import-wizard/-/archive/%{gitbranch}/akonadi-import-wizard-%{gitbranchd}.tar.bz2#/akonadi-import-wizard-%{git}.tar.bz2
 %else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/akonadi-import-wizard-%{version}.tar.xz
 %endif
