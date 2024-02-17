@@ -1,12 +1,19 @@
+%define git 20240217
+%define gitbranch release/24.02
+%define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		plasma6-akonadi-import-wizard
-Version:	24.01.95
-Release:	1
+Version:	24.01.96
+Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		http://www.kde.org
+%if 0%{?git:1}
+Source0:	https://invent.kde.org/pim/akonadi-import-wizard/-/archive/%{gitbranch}/akonadi-import-wizard-%{gitbranchd}.tar.bz2#/akonadi-import-wizard-20240217.tar.bz2
+%else
 Source0:	http://download.kde.org/%{stable}/release-service/%{version}/src/akonadi-import-wizard-%{version}.tar.xz
+%endif
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt6)
 BuildRequires:	cmake(Qt6Core)
@@ -82,7 +89,7 @@ Development files for the KPim import library
 #----------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n akonadi-import-wizard-%{version}
+%autosetup -p1 -n akonadi-import-wizard-%{?git:%{gitbranchd}}%{!?git:%{version}}
 %cmake \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
 	-G Ninja
