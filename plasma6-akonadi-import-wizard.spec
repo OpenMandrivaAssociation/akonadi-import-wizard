@@ -5,7 +5,7 @@
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		plasma6-akonadi-import-wizard
 Version:	24.08.3
-Release:	%{?git:0.%{git}.}1
+Release:	%{?git:0.%{git}.}2
 License:	GPLv2+
 Group:		Graphical desktop/KDE
 Url:		https://www.kde.org
