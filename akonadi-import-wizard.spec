@@ -3,7 +3,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
-Name:		plasma6-akonadi-import-wizard
+Name:		akonadi-import-wizard
 Version:	25.04.0
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
