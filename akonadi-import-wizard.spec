@@ -4,7 +4,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 Summary:	Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc
 Name:		akonadi-import-wizard
-Version:	25.04.0
+Version:	25.04.3
 Release:	%{?git:0.%{git}.}1
 License:	GPLv2+
 Group:		Graphical desktop/KDE
@@ -46,6 +46,9 @@ BuildRequires:	boost-devel
 Provides:	importwizard = %{EVRD}
 Conflicts:	importwizard < 3:16.12
 Obsoletes:	importwizard < 3:16.12
+BuildSystem:	cmake
+BuildOption:	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+%rename plasma6-akonadi-import-wizard
 
 %define libname %mklibname KPim6ImportWizard
 %define devname %mklibname KPim6ImportWizard -d
@@ -53,11 +56,10 @@ Obsoletes:	importwizard < 3:16.12
 %description
 Import Wizard allows to migrate data from mailer as Thunderbird/Evolution etc.
 
-%files -f akonadiimportwizard.lang
+%files -f %{name}.lang
 %{_datadir}/applications/org.kde.akonadiimportwizard.desktop
 %{_bindir}/akonadiimportwizard
 %{_datadir}/importwizard/pics/step1.png
-%{_docdir}/*/*/importwizard
 %{_iconsdir}/hicolor/*/apps/kontact-import-wizard.*
 %{_datadir}/qlogging-categories6/importwizard.categories
 %{_datadir}/qlogging-categories6/importwizard.renamecategories
@@ -86,19 +88,3 @@ Development files for the KPim import library
 %{_libdir}/libKPim6ImportWizard.so
 %{_includedir}/KPim6/ImportWizard
 %{_libdir}/cmake/KPim6ImportWizard
-
-#----------------------------------------------------------------------
-
-%prep
-%autosetup -p1 -n akonadi-import-wizard-%{?git:%{gitbranchd}}%{!?git:%{version}}
-%cmake \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON \
-	-G Ninja
-
-%build
-%ninja -C build
-
-%install
-%ninja_install -C build
-
-%find_lang akonadiimportwizard
